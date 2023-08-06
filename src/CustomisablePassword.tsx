@@ -138,8 +138,8 @@ const MUI_CustomisablePasswordComponent: React.FC<
           <PasswordRequirementComponent
             key={rule}
             valid={valid}
-            validColor="#4BCA81"
-            invalidColor="#FF0033"
+            validColour="#4caf50"
+            defaultColour="#f5333f"
             {...remainingProps}>
             {label}
           </PasswordRequirementComponent>

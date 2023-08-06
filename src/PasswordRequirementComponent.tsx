@@ -2,14 +2,15 @@ import { Checkbox, FormControlLabel } from "@mui/material";
 
 interface PasswordRequirementProps {
   valid: boolean;
-  validColor?: string;
-  invalidColor?: string;
+  validColour?: string;
+  defaultColour?: string;
   children?: React.ReactNode;
 }
 
 export const PasswordRequirementComponent: React.FC<
   PasswordRequirementProps
-> = ({ valid, validColor, invalidColor, children }) => {
+> = ({ valid, validColour, defaultColour, children }) => {
+  console.log(validColour, defaultColour);
   return (
     <div>
       <FormControlLabel
@@ -17,8 +18,8 @@ export const PasswordRequirementComponent: React.FC<
           <Checkbox
             checked={valid}
             disabled={!valid}
-            sx={{
-              color: valid ? validColor : invalidColor,
+            style={{
+              color: valid ? validColour : defaultColour,
             }}
             disableRipple
           />

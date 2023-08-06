@@ -13,8 +13,8 @@ interface PasswordProps {
   valueAgain?: string;
   minLength?: number;
   maxLength?: number;
-  validColor?: string;
-  defaultColor?: string;
+  validColour?: string;
+  defaultColour?: string;
   specialCharactersRegex?: RegExp;
   onChange?: (_: any) => void;
 }
