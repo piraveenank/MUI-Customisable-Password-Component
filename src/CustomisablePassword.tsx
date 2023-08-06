@@ -25,45 +25,50 @@ const MUI_CustomisablePasswordComponent: React.FC<
   if (maxLength < minLength) {
     maxLength = minLength + 1;
   }
-  const passwordRequirementDefinition = useMemo(
+  const passwordRequirementDefinitions = useMemo(
     () => ({
       minLength: {
         valid: value.length >= minLength,
-        label: rules.minLength?.label || `At least ${minLength} characters.`,
+        label:
+          rules.minLength?.label ||
+          `Must be at least ${minLength} characters long.`,
       },
       maxLength: {
         valid: value.length <= maxLength && value.length > 0,
         label:
-          rules.maxLength?.label || `Has no more than ${maxLength} characters.`,
+          rules.maxLength?.label || `Must not exceed ${maxLength} characters.`,
       },
       specialChar: {
         valid: specialCharactersRegex.test(value),
         label:
           rules.specialChar?.label ||
-          `At Least one special characters (${specialCharactersRegex
+          `Must contain at least one special character (${specialCharactersRegex
             .toString()
             .replace("/[", "")
-            .replace("]/g", "")})`,
+            .replace("]/g", "")}).`,
       },
       number: {
         valid: /\d/g.test(value),
-        label: rules.number?.label || "At least one number.",
+        label: rules.number?.label || "Must contain at least one number.",
       },
       capital: {
         valid: /[A-Z]/.test(value),
-        label: rules.capital?.label || "At least one uppercase letter.",
+        label:
+          rules.capital?.label || "Must contain at least one uppercase letter.",
       },
       lowercase: {
         valid: /[a-z]/.test(value),
-        label: rules.lowercase?.label || "At least one lowercase letter.",
+        label:
+          rules.lowercase?.label ||
+          "Must contain at least one lowercase letter.",
       },
       letter: {
         valid: /[a-zA-Z]/.test(value),
-        label: rules.letter?.label || "At least one a letter.",
+        label: rules.letter?.label || "Must contain at least one letter.",
       },
       notEmpty: {
         valid: Boolean(value.length > 0),
-        label: rules.notEmpty?.label || "Are not empty.",
+        label: rules.notEmpty?.label || "Cannot be empty.",
       },
     }),
     [value, minLength, maxLength, specialCharactersRegex, rules]
@@ -71,23 +76,23 @@ const MUI_CustomisablePasswordComponent: React.FC<
 
   const enabledRules =
     Object.keys(rules).length === 0
-      ? Object.keys(passwordRequirementDefinition)
+      ? Object.keys(passwordRequirementDefinitions)
       : Object.keys(rules).filter((rule) =>
           Boolean(
-            passwordRequirementDefinition[rule as PasswordRequirementNames]
+            passwordRequirementDefinitions[rule as PasswordRequirementNames]
           )
         );
 
-  // const filteredObject = Object.fromEntries(
-  //   Object.entries(ruleDefinitions).filter(([key]) =>
-  //     enabledRules.includes(key)
-  //   )
-  // );
+  const filteredObject = Object.fromEntries(
+    Object.entries(passwordRequirementDefinitions).filter(([key]) =>
+      enabledRules.includes(key)
+    )
+  );
 
   const calculatePasswordStrength = () => {
     const fulfilledRulesCount = enabledRules.reduce(
       (count, rule) =>
-        passwordRequirementDefinition[rule as PasswordRequirementNames].valid
+        passwordRequirementDefinitions[rule as PasswordRequirementNames].valid
           ? count + 1
           : count,
       0
@@ -101,17 +106,26 @@ const MUI_CustomisablePasswordComponent: React.FC<
   useEffect(() => {
     const isAllRulesValid = enabledRules.every(
       (rule) =>
-        passwordRequirementDefinition[rule as PasswordRequirementNames].valid
+        passwordRequirementDefinitions[rule as PasswordRequirementNames].valid
     );
     setIsValid(isAllRulesValid);
 
     if (typeof onChange === "function") {
       onChange({
-        // Rules: filteredObject,
+        Rules: filteredObject,
         "Password Meet Requirements": isValid,
+        "Password Strength": passwordStrength,
       });
     }
-  }, [value, enabledRules, onChange, passwordRequirementDefinition, isValid]);
+  }, [
+    value,
+    enabledRules,
+    onChange,
+    passwordRequirementDefinitions,
+    isValid,
+    filteredObject,
+    passwordStrength,
+  ]);
 
   return (
     <div>
@@ -133,7 +147,7 @@ const MUI_CustomisablePasswordComponent: React.FC<
       )}
       {enabledRules.map((rule) => {
         const { label, valid } =
-          passwordRequirementDefinition[rule as PasswordRequirementNames];
+          passwordRequirementDefinitions[rule as PasswordRequirementNames];
         return (
           <PasswordRequirementComponent
             key={rule}

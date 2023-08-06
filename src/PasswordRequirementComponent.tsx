@@ -1,11 +1,5 @@
 import { Checkbox, FormControlLabel } from "@mui/material";
-
-interface PasswordRequirementProps {
-  valid: boolean;
-  validColour?: string;
-  defaultColour?: string;
-  children?: React.ReactNode;
-}
+import { PasswordRequirementProps } from "./types";
 
 export const PasswordRequirementComponent: React.FC<
   PasswordRequirementProps

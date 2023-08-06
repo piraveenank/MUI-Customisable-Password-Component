@@ -25,3 +25,10 @@ export interface MUI_CustomisablePasswordProps extends PasswordProps {
   successColourProgressBar?: string;
   warningColourProgressBar?: string;
 }
+
+export interface PasswordRequirementProps {
+  valid: boolean;
+  validColour?: string;
+  defaultColour?: string;
+  children?: React.ReactNode;
+}
