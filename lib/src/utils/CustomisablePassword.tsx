@@ -7,7 +7,7 @@ import {
   PasswordRequirementNames,
 } from "./types";
 
-const MUI_CustomisablePasswordComponent: React.FC<
+const MUICustomisablePasswordComponent: React.FC<
   MUI_CustomisablePasswordProps
 > = ({
   rules = {},
@@ -164,4 +164,4 @@ const MUI_CustomisablePasswordComponent: React.FC<
   );
 };
 
-export default MUI_CustomisablePasswordComponent;
+export default MUICustomisablePasswordComponent;

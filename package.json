@@ -14,7 +14,7 @@
     "@types/node": "^16.18.39",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
-    "customisable-password-component-mui": "^1.4.0",
+    "customisable-password-component-mui": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
