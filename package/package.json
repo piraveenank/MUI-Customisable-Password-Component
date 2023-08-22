@@ -1,0 +1,35 @@
+{
+  "name": "customisable-password-component-mui",
+  "version": "1.4.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.3",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.39",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p . && yarn copy-types",
+    "clean": "rm -rf dist/",
+    "copy-types": "cp src/index.d.ts dist/index.d.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  },
+  "overrides": {
+    "typescript": "^5.1.6"
+  }
+}
