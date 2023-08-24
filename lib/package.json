@@ -1,6 +1,6 @@
 {
   "name": "mui-customisable-password-component",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Material-UI TypeScript component library for displaying and evaluating password strength in real-time based on various password requirements/rules.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

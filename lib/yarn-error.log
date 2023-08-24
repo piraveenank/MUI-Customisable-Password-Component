@@ -19,7 +19,7 @@ Trace:
 npm manifest: 
   {
     "name": "mui-customisable-password-component",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A Material-UI TypeScript component library for displaying and evaluating password strength in real-time based on various password requirements/rules.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -46,7 +46,15 @@ npm manifest:
       "clean": "rm -rf dist/",
       "copy-types": "cp src/index.d.ts dist/index.d.ts"
     },
-    "keywords": [],
+    "keywords": [
+      "password",
+      "strength",
+      "checker",
+      "material-ui",
+      "mui",
+      "react",
+      "typescript"
+    ],
     "author": "",
     "license": "ISC",
     "devDependencies": {
