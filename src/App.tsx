@@ -80,10 +80,11 @@ function App() {
           sx={{
             marginTop: "20px",
             display: "flex",
-            justifyContent: "center",
+            flexDirection: "column",
             alignItems: "center",
             height: "100px",
             backgroundColor: "black",
+            justifyContent: "center",
           }}>
           <Typography color="white" variant="body2" align="center">
             Developed by Piraveenan Kirupakaran.{" "}
@@ -94,10 +95,18 @@ function App() {
               View on GitHub
             </Link>
           </Typography>
+          <Typography color="white" variant="body2" align="center">
+            {" "}
+            <Link
+              color="inherit"
+              href="https://www.npmjs.com/package/mui-customisable-password-component"
+              target="_blank">
+              mui-customisable-password-component on npm
+            </Link>
+          </Typography>
         </Box>
       </footer>
     </ThemeProvider>
   );
 }
-
 export default App;
