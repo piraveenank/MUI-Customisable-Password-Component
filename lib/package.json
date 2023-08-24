@@ -1,12 +1,16 @@
 {
   "name": "customisable-password-component-mui",
-  "version": "2.0.0",
-  "description": "",
+  "version": "1.0.0",
+  "description": "A Material-UI TypeScript component library for displaying and evaluating password strength in real-time based on various password requirements/rules.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piraveenank/MUI-Customisable-Password-Component/"
+  },
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
