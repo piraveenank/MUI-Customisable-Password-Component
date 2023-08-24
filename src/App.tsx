@@ -1,13 +1,19 @@
 import {
+  Box,
   Container,
+  CssBaseline,
   IconButton,
   InputAdornment,
+  Link,
   TextField,
+  ThemeProvider,
   Typography,
 } from "@mui/material";
 import { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { MUICustomisablePasswordComponent } from "mui-customisable-password-component";
+import { theme } from "./theme";
+import Props from "./Props";
 function App() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -28,41 +34,69 @@ function App() {
   };
 
   return (
-    <Container maxWidth="lg">
-      <Typography variant="h4" fontWeight={"bolder"}>
-        Password Strength Calculator
-      </Typography>
-      <TextField
-        margin="normal"
-        required
-        fullWidth
-        name="password"
-        label="Password"
-        type={showPassword ? "text" : "password"}
-        id="password"
-        autoComplete="new-password"
-        value={password}
-        onChange={handlePasswordChange}
-        InputProps={{
-          endAdornment: (
-            <InputAdornment position="end">
-              <IconButton onClick={handleTogglePassword} edge="end">
-                {showPassword ? <VisibilityOff /> : <Visibility />}
-              </IconButton>
-            </InputAdornment>
-          ),
-          onCopy: handlePasswordCopy,
-        }}
-      />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
 
-      <MUICustomisablePasswordComponent
-        minLength={2}
-        value={password}
-        onChange={(test: any) => {
-          console.log(test);
-        }}
-      />
-    </Container>
+      <Container maxWidth="lg">
+        <Typography variant="h4" fontWeight={"bolder"}>
+          MUI Customisable Password Component
+        </Typography>
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          label="Password"
+          type={showPassword ? "text" : "password"}
+          id="password"
+          autoComplete="new-password"
+          value={password}
+          onChange={handlePasswordChange}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton onClick={handleTogglePassword} edge="end">
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>
+            ),
+            onCopy: handlePasswordCopy,
+          }}
+        />
+
+        <MUICustomisablePasswordComponent
+          minLength={2}
+          value={password}
+          onChange={(test: any) => {
+            console.log(test);
+          }}
+        />
+
+        <Props />
+      </Container>
+
+      <footer>
+        <Box
+          sx={{
+            marginTop: "20px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100px",
+            backgroundColor: "black",
+          }}>
+          <Typography color="white" variant="body2" align="center">
+            Developed by Piraveenan Kirupakaran.{" "}
+            <Link
+              color="inherit"
+              href="https://github.com/piraveenank/MUI-Customisable-Password-Component/"
+              target="_blank">
+              View on GitHub
+            </Link>
+          </Typography>
+        </Box>
+      </footer>
+    </ThemeProvider>
   );
 }
 
