@@ -27,7 +27,15 @@
     "clean": "rm -rf dist/",
     "copy-types": "cp src/index.d.ts dist/index.d.ts"
   },
-  "keywords": [],
+  "keywords": [
+    "password",
+    "strength",
+    "checker",
+    "material-ui",
+    "mui",
+    "react",
+    "typescript"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
