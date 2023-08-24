@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import MUICustomisablePasswordComponent from "./utils/CustomisablePassword";
+import { MUICustomisablePasswordComponent } from "mui-customisable-password-component";
 function App() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -58,7 +58,6 @@ function App() {
       <MUICustomisablePasswordComponent
         minLength={2}
         value={password}
-        specialCharactersRegex={/[^]/g}
         onChange={(test: any) => {
           console.log(test);
         }}

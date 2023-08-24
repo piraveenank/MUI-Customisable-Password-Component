@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.tsx"],"names":[],"mappings":";;;;;;AAAA,qEAA2F;AAAlF,yJAAA,OAAO,OAAoC","sourcesContent":["export { default as MUICustomisablePasswordComponent } from \"./utils/CustomisablePassword\";\n"]}
