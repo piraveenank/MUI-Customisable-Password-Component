@@ -2,6 +2,8 @@
 
 A Customisable Material-UI component that provides real-time password strength evaluation and password rule compliance visualisation.
 
+Developed by Piraveenan Kirupakaran
+
 ## Features
 
 - Real-time password strength updates
